@@ -4,12 +4,10 @@ import 'package:dev_quiz/shared/models/question_model.dart';
 import 'package:flutter/material.dart';
 
 class QuizWidget extends StatelessWidget {
-  final String title;
   final QuestionModel question;
 
   const QuizWidget({
     Key? key,
-    required this.title,
     required this.question,
   }) : super(key: key);
 

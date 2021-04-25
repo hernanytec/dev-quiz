@@ -1,5 +1,5 @@
-name: DevQuiz
-description: DevQuiz - NLW5
+name: dev_quiz
+description: dev_quiz - NLW5
 version: 1.0.0+1
 
 environment:

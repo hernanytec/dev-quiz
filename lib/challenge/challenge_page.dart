@@ -31,12 +31,18 @@ class _ChallengePageState extends State<ChallengePage> {
     if (pageController.page == 0) return;
 
     pageController.previousPage(
-        duration: Duration(milliseconds: 150), curve: Curves.linear);
+      duration: Duration(milliseconds: 150),
+      curve: Curves.linear,
+    );
   }
 
   void nextPage() {
+    if (pageController.page == widget.questions.length - 1) return;
+
     pageController.nextPage(
-        duration: Duration(milliseconds: 150), curve: Curves.linear);
+      duration: Duration(milliseconds: 150),
+      curve: Curves.linear,
+    );
   }
 
   void onSelect() async {

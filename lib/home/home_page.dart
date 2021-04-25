@@ -47,7 +47,6 @@ class _HomePageState extends State<HomePage> {
                   QuizCardWidget(),
                   QuizCardWidget(),
                   QuizCardWidget(),
-                  QuizCardWidget(),
                 ],
               ),
             )

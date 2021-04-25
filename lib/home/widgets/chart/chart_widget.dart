@@ -16,12 +16,31 @@ class ChartWidget extends StatelessWidget {
             child: Container(
               width: 80,
               height: 80,
-              child: CircularProgressIndicator(
-                strokeWidth: 10,
-                value: .75,
-                backgroundColor: AppColors.chartSecondary,
-                valueColor:
-                    AlwaysStoppedAnimation<Color>(AppColors.chartPrimary),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      spreadRadius: 4,
+                      color: Colors.greenAccent,
+                      blurRadius: 12,
+                      offset: Offset(3, 3),
+                    ),
+                  ],
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white,
+                  ),
+                  child: CircularProgressIndicator(
+                    strokeWidth: 10,
+                    value: .75,
+                    backgroundColor: AppColors.chartSecondary,
+                    valueColor:
+                        AlwaysStoppedAnimation<Color>(AppColors.chartPrimary),
+                  ),
+                ),
               ),
             ),
           ),

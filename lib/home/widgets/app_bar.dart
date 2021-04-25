@@ -1,3 +1,4 @@
+import 'package:DevQuiz/core/app_colors.dart';
 import 'package:DevQuiz/core/app_gradients.dart';
 import 'package:DevQuiz/core/app_text_styles.dart';
 import 'package:DevQuiz/home/widgets/score_card/score_card_widget.dart';
@@ -34,6 +35,8 @@ class AppBarWidget extends PreferredSize {
                         width: 58,
                         height: 58,
                         decoration: BoxDecoration(
+                          border: Border.fromBorderSide(
+                              BorderSide(color: AppColors.darkPurple)),
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
                             image: NetworkImage(
@@ -45,7 +48,7 @@ class AppBarWidget extends PreferredSize {
                   ),
                 ),
                 Align(
-                  alignment: Alignment(0.0, 1.0),
+                  alignment: Alignment(0.0, 1.2),
                   child: ScoreCardWidget(),
                 )
               ],

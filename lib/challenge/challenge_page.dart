@@ -2,13 +2,19 @@ import 'package:dev_quiz/challenge/challenge_controller.dart';
 import 'package:dev_quiz/challenge/widgets/next_button/next_button_widget.dart';
 import 'package:dev_quiz/challenge/widgets/question_indicator_widget.dart';
 import 'package:dev_quiz/challenge/widgets/quiz/quiz_widget.dart';
+import 'package:dev_quiz/result/result_page.dart';
 import 'package:dev_quiz/shared/models/question_model.dart';
 import 'package:flutter/material.dart';
 
 class ChallengePage extends StatefulWidget {
   final List<QuestionModel> questions;
+  final String title;
 
-  ChallengePage({Key? key, required this.questions}) : super(key: key);
+  ChallengePage({
+    Key? key,
+    required this.questions,
+    required this.title,
+  }) : super(key: key);
 
   @override
   _ChallengePageState createState() => _ChallengePageState();
@@ -45,7 +51,9 @@ class _ChallengePageState extends State<ChallengePage> {
     );
   }
 
-  void onSelect() async {
+  void onSelect(bool value) async {
+    if (value) controller.countRight++;
+
     await Future.delayed(Duration(seconds: 1));
     nextPage();
   }
@@ -113,7 +121,15 @@ class _ChallengePageState extends State<ChallengePage> {
                           ? NextButtonWidget.primary(
                               label: "Confirmar",
                               onTap: () {
-                                Navigator.pop(context);
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ResultPage(
+                                            title: widget.title,
+                                            length: widget.questions.length,
+                                            result: controller.countRight,
+                                          )),
+                                );
                               },
                             )
                           : NextButtonWidget.secondary(
